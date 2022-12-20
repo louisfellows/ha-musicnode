@@ -39,9 +39,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         sw_version="1.0",
     )
 
-    await hass.async_add_executor_job(
-        async_send_screen_update, entry.data["host"], "Hassio Connected", ""
-    )
+    # await hass.async_add_executor_job(
+    #     async_send_screen_update, entry.data["host"], "Hassio Connected", ""
+    # )
 
     # Services
     await async_setup_services(hass)
