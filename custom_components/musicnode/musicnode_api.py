@@ -18,7 +18,7 @@ class MusicnodeApi:
     def async_send_media_update(self, request: dict) -> bool:
         """Send the thing."""
         api_response = requests.put(
-            f"{self.host}:{self.port}/state", json=request, timeout=5000
+            f"{self.host}:{self.port}/Music/State", json=request, timeout=5000
         )
         return api_response.ok
 
@@ -26,13 +26,13 @@ class MusicnodeApi:
         """Send the thing."""
         mbody = {"Line1": line1, "Line2": line2}
         api_response = requests.put(
-            f"{self.host}:{self.port}/message", json=mbody, timeout=5000
+            f"{self.host}:{self.port}/Display/Message", json=mbody, timeout=5000
         )
         return api_response.ok
 
     def async_healthcheck(self) -> int:
         """Check we can see the API."""
         api_response = requests.get(
-            f"{self.host}:{self.port}/api/Util/healthcheck", timeout=5000
+            f"{self.host}:{self.port}/Util/Healthcheck", timeout=5000
         )
         return api_response.status_code
