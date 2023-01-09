@@ -94,3 +94,92 @@ update:
       selector:
         text:
           multiline: false
+
+alarm:
+  name: Trigger Alarm
+  description: Create and play a new playlist as an alarm clock.
+  fields:
+
+speak:
+  name: Speak a Message
+  description: Speak a Message
+  fields:
+    message:
+      name: Message
+      description: The Message to Read
+      required: true
+      advanced: false
+      example: Hello, Here is a message
+      selector:
+        text:
+          multiline: false
+    bell:
+      name: Bell
+      description: The Bell to Play
+      required: true
+      advanced: false
+      example: Default
+      selector:
+        select:
+          options:
+            - "OneUp"
+            - "Achievement"
+            - "Announcement"
+            - "BellAnnouncement" 
+            - "Default"
+            - "ElectronicBeep"
+            - "ErrorBeep"
+            - "FairyBells"
+            - "PoliceHorn"
+            - "Positive"
+            - "SoftDing"
+            - "None"
+
+bell:
+  name: Bell Alert
+  description: Ring an announcement bell
+  fields:
+    bell:
+      name: Bell
+      description: The Bell to Play
+      required: true
+      advanced: false
+      example: Default
+      selector:
+        select:
+          options:
+            - "OneUp"
+            - "Achievement"
+            - "Announcement"
+            - "BellAnnouncement" 
+            - "Default"
+            - "ElectronicBeep"
+            - "ErrorBeep"
+            - "FairyBells"
+            - "PoliceHorn"
+            - "Positive"
+            - "SoftDing"
+            - "None"
+
+tempmsg:
+  name: Display a temporary message
+  description: Display a temporary message.
+  fields:
+    line_1:
+      name: Line 1
+      description: The First Line of the Message to Display
+      required: true
+      advanced: false
+      example: Hello, Here is a message
+      selector:
+        text:
+          multiline: false
+    line_2:
+      name: Line 2
+      description: The Second Line of the Message to Display
+      required: true
+      advanced: false
+      example: Hello, Here is a message
+      selector:
+        text:
+          multiline: false

@@ -29,6 +29,14 @@ class MusicnodeApi:
             f"{self.host}:{self.port}/Display/Message", json=mbody, timeout=5000
         )
         return api_response.ok
+    
+    def async_send_temporary_screen_update(self, line1: str, line2: str) -> bool:
+        """Send the thing."""
+        mbody = {"Line1": line1, "Line2": line2}
+        api_response = requests.put(
+            f"{self.host}:{self.port}/Display/TemporaryMessage", json=mbody, timeout=5000
+        )
+        return api_response.ok
 
     def async_healthcheck(self) -> int:
         """Check we can see the API."""
@@ -36,3 +44,26 @@ class MusicnodeApi:
             f"{self.host}:{self.port}/Util/Healthcheck", timeout=5000
         )
         return api_response.status_code
+
+    def async_alarm(self) -> bool:
+        """Trigger the Alarm"""
+        api_response = requests.post(
+            f"{self.host}:{self.port}/Alarm", timeout=5000
+        )
+        return api_response.ok
+    
+    def async_alert(self, message: str, bell: str) -> bool:
+        """Read an alert message aloud"""
+        mbody = {"bell": bell, "message": message}
+        api_response = requests.put(
+            f"{self.host}:{self.port}/Alert", json=mbody, timeout=5000
+        )
+        return api_response.ok
+    
+    def async_bell(self,  bell: str) -> bool:
+        """Read an alert message aloud"""
+        api_response = requests.put(
+            f"{self.host}:{self.port}/Alert/Bell?bell={bell}", timeout=5000
+        )
+        return api_response.ok
+    
