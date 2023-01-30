@@ -27,6 +27,8 @@ TRIGGER_TYPES = {
     "forward_button_press",
     "up_button_press",
     "down_button_press",
+    "dial_ccw",
+    "dial_cw"
 }
 
 TRIGGER_SCHEMA = DEVICE_TRIGGER_BASE_SCHEMA.extend(
